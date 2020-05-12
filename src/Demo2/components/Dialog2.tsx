@@ -11,7 +11,7 @@ const Dialog2 = (props: DialogProps) => {
   return (
     <Modal
       title="Dialog2"
-      visible={props.isShow}
+      visible={true}
       onOk={() => {}}
       onCancel={() => dispatch(commonActions.closeDialog())}
     >

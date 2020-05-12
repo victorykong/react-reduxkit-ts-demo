@@ -16,7 +16,7 @@ const Demo1 = () => {
   const [subDesc, setSubDesc] = useState("我是 Demo1Sub >>");
 
   // 不会影响到其它子组件无意义的渲染
-  const memoDemo1Sub = useMemo(() => <Demo1Sub subDesc={subDesc} />, [subDesc]);
+  // const memoDemo1Sub = useMemo(() => <Demo1Sub subDesc={subDesc} />, [subDesc]);
 
   return (
     <>
@@ -33,18 +33,17 @@ const Demo1 = () => {
       </Button>
 
       {/* 子组件 */}
-      {/* <Demo1Sub subDesc={subDesc} /> */}
-      {memoDemo1Sub}
+      <Demo1Sub subDesc={subDesc} />
+      {/* {memoDemo1Sub} */}
       <hr />
 
-      {/* {showDialog1 && ( */}
       <Dialog1
         visible={showDialog1}
         desc="Dialog1 desc"
         onCancel={() => setShowDialog1(false)}
       />
-      {/* )} */}
 
+      {/* visible 显式为 true */}
       {showDialog2 && (
         <Dialog2 desc="Dialog2 desc" onCancel={() => setShowDialog2(false)} />
       )}

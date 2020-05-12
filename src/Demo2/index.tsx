@@ -14,28 +14,9 @@ import Dialog2 from "./components/Dialog2";
 const Demo2 = () => {
   const { dialog } = useSelector(({ common }: RootState) => common);
 
-  // const _renderDialog = () => {
-  //   console.log("_renderDialog >>>");
+  const _renderDialog = () => {
+    console.log("_renderDialog >>>");
 
-  //   if (dialog.isShow) {
-  //     switch (dialog.name) {
-  //       case "Dialog1":
-  //         return <Dialog1 {...dialog} />;
-  //       case "Dialog2":
-  //         return <Dialog2 {...dialog} />;
-  //       default:
-  //         return null;
-  //     }
-  //   }
-
-  //   return null;
-  // };
-
-  /**
-   * 其它 store 的变更不会影响到该值重新被计算
-   */
-  const memoDialogRender = useMemo(() => {
-    console.log("memoDialogRender >>>");
     if (dialog.isShow) {
       switch (dialog.name) {
         case "Dialog1":
@@ -48,7 +29,26 @@ const Demo2 = () => {
     }
 
     return null;
-  }, [dialog]);
+  };
+
+  /**
+   * 其它 store 的变更不会影响到该值重新被计算
+   */
+  // const memoDialogRender = useMemo(() => {
+  //   console.log("memoDialogRender >>>");
+  //   if (dialog.isShow) {
+  //     switch (dialog.name) {
+  //       case "Dialog1":
+  //         return <Dialog1 {...dialog} />;
+  //       case "Dialog2":
+  //         return <Dialog2 {...dialog} />;
+  //       default:
+  //         return null;
+  //     }
+  //   }
+
+  //   return null;
+  // }, [dialog]);
 
   return (
     <>
@@ -59,8 +59,8 @@ const Demo2 = () => {
       <hr />
 
       {/* 统一弹窗管理 */}
-      {/* {_renderDialog()} */}
-      {memoDialogRender}
+      {_renderDialog()}
+      {/* {memoDialogRender} */}
     </>
   );
 };
