@@ -2,25 +2,28 @@
  * Dialog Hook
  */
 
-import useSetState from "./useSetState";
+import { useCallback, useState } from "react";
 
 const useDialog = () => {
-  const [{ visible, ...extraOptions }, setState] = useSetState({
+  console.log("useDialog 执行 >>>>>");
+
+  const [{ visible, ...extraOptions }, setState] = useState({
     visible: false,
   });
 
-  const onOpen = (payload?: object) => {
+  // 该 hook 被执行一次就会创建一个新的函数引用
+  const onOpen = useCallback((payload?: object) => {
     setState({
       visible: true,
       ...payload,
     });
-  };
+  }, []);
 
-  const onCancel = () => {
+  const onCancel = useCallback(() => {
     setState({
       visible: false,
     });
-  };
+  }, []);
 
   return {
     visible, // 是否显示
