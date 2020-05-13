@@ -9,6 +9,11 @@ interface Dialog1Props extends DialogProps {
   friends?: Array<string>;
 }
 
+// export interface Dialog1Props extends DialogProps {
+//   desc: string;
+//   friends: Array<string>;
+// }
+
 const Dialog1: React.FC<Dialog1Props> = ({
   visible,
   onCancel,
