@@ -1,0 +1,4 @@
+#root .ant-select-multiple .ant-select-selector {
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
